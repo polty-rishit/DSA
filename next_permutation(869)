@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isPower(int n)
+{
+    if(n==0)return 0;
+    long long power=1;
+    while(power<=n)
+    {
+        if(power==n)return true;
+        if(power>n/2)break;
+        power*=2;
+    }
+    return false;
+}
+
+bool reorderedPowerOf2(int n)
+{
+    vector<int>ans;
+    while(n!=0)
+    {
+        int d=n%10;
+        ans.push_back(d);
+        n=n/10;
+    }
+    sort(ans.begin(),ans.end());
+
+    do{
+        if(ans[0]==0)continue;
+        int res=0;
+        for(int i=0;i<ans.size();i++)
+        {
+            res=res*10+ans[i];
+        }
+        if(isPower(res))return true;
+    }while(next_permutation(ans.begin(),ans.end()));
+    return false;
+}
