@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int sumOddLengthSubarrays(vector<int>& arr) {
+        vector<int>ans;
+        int n=arr.size();
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i;j<n;j++)
+            {
+                if((j-i+1)%2!=0)
+                {
+                    int sum=0;
+                    for(int k=i;k<=j;k++)
+                    {
+                        sum+=arr[k];
+                    }
+                    ans.push_back(sum);
+                }
+            }
+        }
+        int sum=0;
+        for(auto i:ans)sum+=i;
+        return sum;
+    }
+};
