@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int findClosestNumber(vector<int>& nums) {
+        int mini=abs(nums[0]);
+        for(auto i:nums)
+        {
+            mini=min(abs(i),mini);
+        }
+        for(auto i:nums)
+        {
+            if(i==mini)return mini;
+        }
+        return -mini;
+    }
+};
